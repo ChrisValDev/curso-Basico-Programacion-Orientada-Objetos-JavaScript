@@ -38,3 +38,12 @@ class Student2 {// Forma de crear una clase (prototipo)
        this.cursosAprobados.push(nuevoCursito); 
     }
 }
+
+const miguelito = new Student2(
+    "Miguel",
+    28,
+    [
+        "Curso de Analisis de Negocios para Ciencia de Datos",
+        "Curso de Principios de Visualizacion de Datos para BI",
+    ],
+);
