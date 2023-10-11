@@ -33,5 +33,8 @@ class Student2 {// Forma de crear una clase (prototipo)
         this.name = name;
         this.age = age;
         this.cursosAprobados = cursosAprobados;
+        this.aprobarCurso = function(nuevoCursito) {
+            this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de una clase.
+            }
     }
 }
