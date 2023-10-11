@@ -14,7 +14,10 @@ function Student(name, age, cursosAprobados) {
     this.name = name;
     this.age = age;
     this.cursosAprobados = cursosAprobados;
-    this.aprobarCurso = function(nuevoCursito) {
-        this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de un prototipo.
-    }
+    // this.aprobarCurso = function(nuevoCursito) {
+    // this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de un prototipo.
+    // }
 }
+Student.prototype.aprobarCurso = function(nuevoCursito) {
+    this.cursosAprobados.push(nuevoCursito);//forma de crear metodo por fuera del prototipo con --prototype--.
+    }
