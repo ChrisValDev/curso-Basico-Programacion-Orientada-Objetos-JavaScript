@@ -28,22 +28,27 @@ const juanita = new Student(
 
 //Prototipos con la sintaxis clases
 
-class Student2 {// Forma de crear una clase (prototipo)
-    constructor(name, age, cursosAprobados) {//constructor es un metodo de la clase
+class Student2 {
+    constructor({// Al colocar los parametros del contructor dentro de un objeto, el constructor no esta obligado a recibir los parametros en orden para poder contruir el nuevo objeto (instancia), se puede asignar valores por default a los parametros para convertirlos opcionales.
+        name,
+        cursosAprobados = [],// Al asignarle un valor al parametro, se vuelve opcional para las instancias (objetos).
+        age,
+        email,
+    }) {
         this.name = name;
+        this.email = email;
         this.age = age;
         this.cursosAprobados = cursosAprobados;
     }
-    aprobarCurso(nuevoCursito) {//segundo metodo de la clase
+    aprobarCurso(nuevoCursito) {
        this.cursosAprobados.push(nuevoCursito); 
     }
 }
 
-const miguelito = new Student2(
-    "Miguel",
-    28,
-    [
-        "Curso de Analisis de Negocios para Ciencia de Datos",
-        "Curso de Principios de Visualizacion de Datos para BI",
-    ],
-);
+const miguelito = new Student2({// Aqui al crear la instancia(objeto) miguelito, se crean los argumentos(propiedad: atributo) dentro de un objeto, no es necesario un orden especifico en este caso.
+    name: "Miguel",
+    age: 28,
+    email: "miguelito@platzi.com",
+});
+
+//Esta opcion de guardar los parametros y argumentos dentro de un objeto funciona tambien en los prototipos de function, y en objetos literales.
