@@ -9,4 +9,13 @@ const natalia = {
         this.cursosAprobados.push(nuevoCursito);
     },
 };
-natalia.aprobarCurso("Curso Basico de JS");
+
+//Los prototipos funcionana para crear mas objetos con propiedades iguales o similares de manera ordenada y con menos codigo.
+function Student(name, age, cursosAprobados) {//forma de crear un prototipo con la sintaxis function
+    this.name = name;
+    this.age = age;
+    this.cursosAprobados = cursosAprobados;
+    this.aprobarCurso = function(nuevoCursito) {
+        this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de un prototipo
+    }
+}
