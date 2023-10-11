@@ -1,67 +1,38 @@
-const juan1 = {
-    name: "JuanDc",
-    username: "juandc",
-    points: 100,
-    socialMedia: {
-       twitter: "fjuandc",
-       instagram: "fjuandc",
-       facebook: "undefined", 
-    },
-
-    approvedCourses: [
-        "Curso Definitivo de HTML y CSS",
-        "Curso Practico de HTML y CSS",
-    ],
-    learningPaths: [
-        {
-            name: "Escuela de Desarrollo Web",
-            courses: [
-                "Curso Definitivo de HTML y CSS",
-                "Curso Practico de HTML y CSS",
-                "Curso de Responsive Design",
-            ],
-        },
-        {
-            name: "Escuela de Videojuegos",
-            courses: [
-                "Curso Introduccion a la Produccion de Vgs",
-                "Curso de Unreal Engine",
-                "Curso de Unioty 3D",
-            ],
-        },
-    ]
+class Student{
+    constructor({
+        name,
+        email,
+        username,
+        twitter = undefined,
+        instagram = undefined,
+        facebook = undefined,
+        approvedCourses = [],
+        learningPaths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.socialMeddia = {
+            twitter, //twitter: twiter === twitter, sintaxis de JavaScript
+            instagram,
+            facebook,
+        };
+        this.approvedCourses = approvedCourses;
+        this.learningPaths = learningPaths;
+    }
 }
 
-const miguelito1 = {
+const juan2 = new Student({
+    name: "JuanDC",
+    username: "juandc",
+    email: "juanito@juanito.com",
+    twitter: "fjuandc",
+});
+
+const miguelito2 = new Student({
     name: "Miguelito",
     username: "miguelitofeliz",
-    points: 1000,
-    socialMedia: {
-       twitter: "miguelitofeliz",
-       instagram: "miguelito_feliz",
-       facebook: "undefined", 
-    },
-
-    approvedCourses: [
-        "Curso DataBusiness",
-        "Curso DataViz",
-    ],
-    learningPaths: [
-        {
-            name: "Escuela de Desarrollo Web",
-            courses: [
-                "Curso Definitivo de HTML y CSS",
-                "Curso Practico de HTML y CSS",
-                "Curso de Responsive Design",
-            ],
-        },
-        {
-            name: "Escuela de Data Science",
-            courses: [
-                "Curso DataBusiness",
-                "Curso DataViz",
-                "Curso de Tableu",
-            ],
-        },
-    ]
-}// Creacion de objetos literales, no es escalable para mantenimiento, cambios, etc. Consume demasiadas lineas de codigo cada uno.
+    email: "miguelito@juanito.com",
+    twitter: "migelito_feliz",
+});
+//Aqui se muestra la ventaja de crear una clase(prototipo) Student para crear varios objetos con menos linea de codigo, reutilizacion de codigo. 
