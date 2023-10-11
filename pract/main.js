@@ -5,6 +5,8 @@ const natalia = {
         "Curso Definitivo de HTML y CSS",
         "Curso Practico de HTML y CSS",
     ],
+    aprobarCurso(nuevoCursito) {
+        this.cursosAprobados.push(nuevoCursito);
+    },
 };
-//Hacer que Natalia apruebe otro curso
-natalia.cursosAprobados.push("Curso de Responsive Design");
+natalia.aprobarCurso("Curso Basico de JS");
