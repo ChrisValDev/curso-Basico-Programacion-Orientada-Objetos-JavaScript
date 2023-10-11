@@ -29,12 +29,12 @@ const juanita = new Student(
 //Prototipos con la sintaxis clases
 
 class Student2 {// Forma de crear una clase (prototipo)
-    constructor(name, age, cursosAprobados) {
+    constructor(name, age, cursosAprobados) {//constructor es un metodo de la clase
         this.name = name;
         this.age = age;
         this.cursosAprobados = cursosAprobados;
-        this.aprobarCurso = function(nuevoCursito) {
-            this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de una clase.
-            }
+    }
+    aprobarCurso(nuevoCursito) {//segundo metodo de la clase
+       this.cursosAprobados.push(nuevoCursito); 
     }
 }
