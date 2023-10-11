@@ -14,9 +14,6 @@ function Student(name, age, cursosAprobados) {
     this.name = name;
     this.age = age;
     this.cursosAprobados = cursosAprobados;
-    // this.aprobarCurso = function(nuevoCursito) {
-    // this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de un prototipo.
-    // }
 }
 Student.prototype.aprobarCurso = function(nuevoCursito) {
     this.cursosAprobados.push(nuevoCursito);//forma de crear metodo por fuera del prototipo con --prototype--.
@@ -26,5 +23,15 @@ const juanita = new Student(
     "Juanita Alejandra",
     15,
     ["Curso de Introduccion a la Produccion de Videojuegos",
-     "Curso de Creacion de Personajes"],
+    "Curso de Creacion de Personajes"],
     );
+
+//Prototipos con la sintaxis clases
+
+class Student2 {// Forma de crear una clase (prototipo)
+    constructor(name, age, cursosAprobados) {
+        this.name = name;
+        this.age = age;
+        this.cursosAprobados = cursosAprobados;
+    }
+}
