@@ -1,4 +1,24 @@
-class LearningPath {
+class Course {//Creacion de prototipo mediante clase
+    constructor({
+        name, 
+        classes = [],
+    }) {
+        this.name = name;
+        this.classes = classes;
+    }
+}
+
+const cursoProgBasica = new Course({//Creacion de objeto mediante instancia
+    name: "Curso Gratis de Programacion Basica",
+});
+const cursoDefinitivoHTML = new Course({
+    name: "Curso Definitivo de HTML y CSS",
+});
+const cursoPracticoHTML = new Course({
+    name: "Curso Practico de HTML y CSS",
+});
+
+class LearningPath {//Creacion de prototipo mediante clase
     constructor({
         name, 
         courses = [],
@@ -8,18 +28,18 @@ class LearningPath {
     }
 }
 
-const escuelaWeb = new LearningPath({
+const escuelaWeb = new LearningPath({//Creacion de objeto mediante instancia
     name: "Escuela de Desarrollo Web",
     courses: [
-        "Programacion Basica",
-        "Curso Definitivo de HTML y CSS",
-        "Curso Practico de HTML y CSS",
+        cursoProgBasica,
+        cursoDefinitivoHTML,//A esto se le llama abstraccion, ayuda a simplificar la complejidad y a mejorar la claridad del código. Ayuda tambien a reutilizar el codigo.
+        cursoPracticoHTML,
     ]
 });
 const escuelaData = new LearningPath({
     name: "Escuela de Data Science",
     courses: [
-        "Programacion Basica",
+        cursoProgBasica,
         "Curso Data Business",
         "Curso Dataviz",
     ]
@@ -27,13 +47,13 @@ const escuelaData = new LearningPath({
 const escuelaVgs = new LearningPath({
     name: "Escuela de Videojuegos",
     courses: [
-        "Programacion Basica",
+        cursoProgBasica,
         "Curso de Intro a Unity",
         "Curso de Unreal",
     ]
 });
 
-class Student{
+class Student{//Creacion de prototipo mediante clase
     constructor({
         name,
         email,
@@ -57,7 +77,7 @@ class Student{
     }
 }
 
-const juan2 = new Student({
+const juan2 = new Student({//Creacion de objeto mediante instancia
     name: "JuanDC",
     username: "juandc",
     email: "juanito@juanito.com",
@@ -67,7 +87,6 @@ const juan2 = new Student({
         escuelaVgs,
     ]
 });
-
 const miguelito2 = new Student({
     name: "Miguelito",
     username: "miguelitofeliz",
