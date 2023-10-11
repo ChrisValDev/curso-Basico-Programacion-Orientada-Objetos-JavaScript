@@ -21,3 +21,10 @@ function Student(name, age, cursosAprobados) {
 Student.prototype.aprobarCurso = function(nuevoCursito) {
     this.cursosAprobados.push(nuevoCursito);//forma de crear metodo por fuera del prototipo con --prototype--.
     }
+
+const juanita = new Student(
+    "Juanita Alejandra",
+    15,
+    ["Curso de Introduccion a la Produccion de Videojuegos",
+     "Curso de Creacion de Personajes"],
+    );
