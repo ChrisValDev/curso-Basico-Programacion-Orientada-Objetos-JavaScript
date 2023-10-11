@@ -1,3 +1,38 @@
+class LearningPath {
+    constructor({
+        name, 
+        courses = [],
+    }) {
+        this.name = name;
+        this.course = courses;
+    }
+}
+
+const escuelaWeb = new LearningPath({
+    name: "Escuela de Desarrollo Web",
+    courses: [
+        "Programacion Basica",
+        "Curso Definitivo de HTML y CSS",
+        "Curso Practico de HTML y CSS",
+    ]
+});
+const escuelaData = new LearningPath({
+    name: "Escuela de Data Science",
+    courses: [
+        "Programacion Basica",
+        "Curso Data Business",
+        "Curso Dataviz",
+    ]
+});
+const escuelaVgs = new LearningPath({
+    name: "Escuela de Videojuegos",
+    courses: [
+        "Programacion Basica",
+        "Curso de Intro a Unity",
+        "Curso de Unreal",
+    ]
+});
+
 class Student{
     constructor({
         name,
@@ -13,7 +48,7 @@ class Student{
         this.email = email;
         this.username = username;
         this.socialMeddia = {
-            twitter, //twitter: twiter === twitter, sintaxis de JavaScript
+            twitter,
             instagram,
             facebook,
         };
@@ -27,12 +62,19 @@ const juan2 = new Student({
     username: "juandc",
     email: "juanito@juanito.com",
     twitter: "fjuandc",
+    learningPaths: [
+        escuelaWeb,
+        escuelaVgs,
+    ]
 });
 
 const miguelito2 = new Student({
     name: "Miguelito",
     username: "miguelitofeliz",
     email: "miguelito@juanito.com",
-    twitter: "migelito_feliz",
+    instagram: "migelito_feliz",
+    learningPaths: [
+        escuelaWeb,
+        escuelaData,
+    ]
 });
-//Aqui se muestra la ventaja de crear una clase(prototipo) Student para crear varios objetos con menos linea de codigo, reutilizacion de codigo. 
