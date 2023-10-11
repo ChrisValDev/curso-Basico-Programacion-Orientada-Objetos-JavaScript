@@ -10,12 +10,11 @@ const natalia = {
     },
 };
 
-//Los prototipos funcionana para crear mas objetos con propiedades iguales o similares de manera ordenada y con menos codigo.
-function Student(name, age, cursosAprobados) {//forma de crear un prototipo con la sintaxis function
+function Student(name, age, cursosAprobados) {
     this.name = name;
     this.age = age;
     this.cursosAprobados = cursosAprobados;
     this.aprobarCurso = function(nuevoCursito) {
-        this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de un prototipo
+        this.cursosAprobados.push(nuevoCursito);//forma de crear metodo dentro de un prototipo.
     }
 }
