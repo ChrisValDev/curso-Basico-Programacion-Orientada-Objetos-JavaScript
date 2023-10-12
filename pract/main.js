@@ -17,7 +17,6 @@ class Course {
         }
     }
 }
-
 const cursoProgBasica = new Course({
     name: "Curso Gratis de Programacion Basica",
 });
@@ -38,7 +37,6 @@ class LearningPath {
         this.course = courses;
     }
 }
-
 const escuelaWeb = new LearningPath({
     name: "Escuela de Desarrollo Web",
     courses: [
@@ -86,6 +84,22 @@ class Student{
         this.approvedCourses = approvedCourses;
         this.learningPaths = learningPaths;
     }
+}
+
+class FreeStudent extends Student {// extends sirve para heredar todos los parametros, propiedades y metodos de la clase Student(prototipo).
+    constructor(propiedades) {//Cuando un objeto genera instancia con la clase(prototipo) FreeStudent recibimos las propiedades y metodos del objeto.
+        super(propiedades);// super sirve para enviar todas las propiedades del objeto(instancia) a nuestro Padre clase Student.
+    }
+}
+
+
+class FreeStudent extends Student {
+
+}
+
+
+class FreeStudent extends Student {
+
 }
 
 const juan2 = new Student({
