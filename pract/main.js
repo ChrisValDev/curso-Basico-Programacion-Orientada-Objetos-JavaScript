@@ -171,11 +171,7 @@ class TeacherStudent extends Student {
     }
 
 
-<<<<<<< HEAD
     publicarComentario(commentContent) {// Se aplica el poliformismo ya que se modifica el metodo original de la clase Student(prototipo).
-=======
-    publicarComentario(commentContent) {// Con este metodo se aplica el poliformismo ya que se modifica el valor original de la clase Student(prototipo).
->>>>>>> 6ecae43a6f5c9e940f4f82f8fc9e85107259ec37
         const comment = new Comment ({
             content: commentContent,
             studentName: this.name,
