@@ -1,16 +1,27 @@
-class Course {//Creacion de prototipo mediante clase
+class Course {
     constructor({
         name, 
         classes = [],
     }) {
-        this.name = name;
+        this._name = name;
         this.classes = classes;
+    }
+    get name() {//obtiene el valor de una propiedad.
+        return this._name;
+    }
+    set name(nuevoNombresito) {//establece el valor de una propiedad.
+        if (nuevoNombresito === "Curso Malito de Programacion Basica") {
+            console.error("Seas mamon");
+        } else {
+          this._name = nuevoNombresito;
+        }
     }
 }
 
-const cursoProgBasica = new Course({//Creacion de objeto mediante instancia
+const cursoProgBasica = new Course({
     name: "Curso Gratis de Programacion Basica",
 });
+
 const cursoDefinitivoHTML = new Course({
     name: "Curso Definitivo de HTML y CSS",
 });
@@ -18,7 +29,7 @@ const cursoPracticoHTML = new Course({
     name: "Curso Practico de HTML y CSS",
 });
 
-class LearningPath {//Creacion de prototipo mediante clase
+class LearningPath {
     constructor({
         name, 
         courses = [],
@@ -28,11 +39,11 @@ class LearningPath {//Creacion de prototipo mediante clase
     }
 }
 
-const escuelaWeb = new LearningPath({//Creacion de objeto mediante instancia
+const escuelaWeb = new LearningPath({
     name: "Escuela de Desarrollo Web",
     courses: [
         cursoProgBasica,
-        cursoDefinitivoHTML,//A esto se le llama abstraccion, ayuda a simplificar la complejidad y a mejorar la claridad del código. Ayuda tambien a reutilizar el codigo.
+        cursoDefinitivoHTML,
         cursoPracticoHTML,
     ]
 });
@@ -53,7 +64,7 @@ const escuelaVgs = new LearningPath({
     ]
 });
 
-class Student{//Creacion de prototipo mediante clase
+class Student{
     constructor({
         name,
         email,
@@ -77,7 +88,7 @@ class Student{//Creacion de prototipo mediante clase
     }
 }
 
-const juan2 = new Student({//Creacion de objeto mediante instancia
+const juan2 = new Student({
     name: "JuanDC",
     username: "juandc",
     email: "juanito@juanito.com",
