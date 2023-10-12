@@ -1,17 +1,40 @@
+class Comment {
+    constructor({
+        content,
+        studentName,
+        studentRole = "estudiante",
+    }) {
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes = 0;// Aqui un ejemplo de que aunque no recibamos parametros en el constructor, podemos agregar atributos a la clase(prototipo)
+    }
+
+    publicar(){
+        console.log(this.studentName + "(" + this.studentRole + ")");
+        console.log(this.likes + " likes");
+        console.log(this.content);
+    }
+}
+
 class Course {
     constructor({
         name, 
         classes = [],
+        isFree = false,
+        lang = "spanish",
     }) {
         this._name = name;
         this.classes = classes;
+        this.isFree = isFree;
+        this.lang = lang;
     }
     get name() {//obtiene el valor de una propiedad.
         return this._name;
     }
     set name(nuevoNombresito) {//establece el valor de una propiedad.
         if (nuevoNombresito === "Curso Malito de Programacion Basica") {
-            console.error("Seas mamon");
+            console.error("No puedes poner ese nombre al curso");
         } else {
           this._name = nuevoNombresito;
         }
@@ -19,6 +42,7 @@ class Course {
 }
 const cursoProgBasica = new Course({
     name: "Curso Gratis de Programacion Basica",
+    isFree: true,
 });
 
 const cursoDefinitivoHTML = new Course({
@@ -26,6 +50,7 @@ const cursoDefinitivoHTML = new Course({
 });
 const cursoPracticoHTML = new Course({
     name: "Curso Practico de HTML y CSS",
+    lang: "english",
 });
 
 class LearningPath {
@@ -84,25 +109,78 @@ class Student{
         this.approvedCourses = approvedCourses;
         this.learningPaths = learningPaths;
     }
+
+    publicarComentario(commentContent) {
+        const comment = new Comment ({
+            content: commentContent,
+            studentName: this.name,
+        });
+        comment.publicar();
+    }
 }
 
-class FreeStudent extends Student {// extends sirve para heredar todos los parametros, propiedades y metodos de la clase Student(prototipo).
-    constructor(propiedades) {//Cuando un objeto genera instancia con la clase(prototipo) FreeStudent recibimos las propiedades y metodos del objeto.
-        super(propiedades);// super sirve para enviar todas las propiedades del objeto(instancia) a nuestro Padre clase Student.
+//Aplicando herencia entre clases
+
+class FreeStudent extends Student {
+    constructor(propiedades) {
+        super(propiedades);
+    }
+
+    approvedCourse(newCourse) {
+        if (newCourse.isFree) {
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn("Lo sentimos " + this.name + ", solo puedes tomar cursos abiertos");
+        }
     }
 }
 
 
-class FreeStudent extends Student {
-
+class BasicStudent extends Student {
+    constructor(propiedades) {
+        super(propiedades);
+    }
+    
+    approvedCourse(newCourse) {
+        if (newCourse.lang !== "english") {
+            this.approvedCourses.push(newCourse);
+        } else {
+            console.warn("Lo sentimos " + this.name + ", no puedes tomar cursos en ingles");
+        }
+    }
 }
 
 
-class FreeStudent extends Student {
+class ExpertStudent extends Student {
+    constructor(propiedades) {
+        super(propiedades);
+    }
 
+    approvedCourse(newCourse) {
+            this.approvedCourses.push(newCourse);
+    }
 }
 
-const juan2 = new Student({
+class TeacherStudent extends Student {
+    constructor(propiedades) {
+        super(propiedades);
+    }
+
+    approvedCourse(newCourse) {
+            this.approvedCourses.push(newCourse);
+    }
+
+
+    publicarComentario(commentContent) {// Con este metodo se aplica el poliformismo ya que se modifica el valor original de la clase Student(prototipo).
+        const comment = new Comment ({
+            content: commentContent,
+            studentName: this.name,
+            studentRole: "profesor",
+        });
+        comment.publicar();
+    }
+}
+const juan = new FreeStudent({
     name: "JuanDC",
     username: "juandc",
     email: "juanito@juanito.com",
@@ -112,7 +190,7 @@ const juan2 = new Student({
         escuelaVgs,
     ]
 });
-const miguelito2 = new Student({
+const miguelito = new BasicStudent({
     name: "Miguelito",
     username: "miguelitofeliz",
     email: "miguelito@juanito.com",
@@ -121,4 +199,10 @@ const miguelito2 = new Student({
         escuelaWeb,
         escuelaData,
     ]
+});
+const freddy = new TeacherStudent({
+    name: "Freddy Vega",
+    username: "freddier",
+    email: "f@gep.com",
+    instagram: "freddiervega",
 });
