@@ -40,7 +40,39 @@ persona.decirHola();
 // Además, JavaScript es un lenguaje de programación orientado a objetos, por lo que los objetos desempeñan un papel central en la programación JavaScript, y casi todo en JavaScript es un objeto o se puede considerar como un objeto.
 
 
-// Prototipos (moldes): Sirven para crear varios objetos con propiedades y metodos iguales sin necesidad de crearlos manualmente uno por uno.
+// Prototipos (moldes): 
+
+// Los prototipos en JavaScript son una característica fundamental del lenguaje que se utiliza para implementar la herencia y la reutilización de código. Entender los prototipos es esencial para comprender cómo funciona la herencia en JavaScript.
+
+// En JavaScript, cada objeto tiene una propiedad interna llamada __proto__ que hace referencia a otro objeto, que es su prototipo. Cuando intentas acceder a una propiedad o método en un objeto, JavaScript primero busca en el objeto en sí y, si no lo encuentra, busca en su prototipo, y así sucesivamente hasta llegar al prototipo base (que es Object.prototype). Esto se conoce como "cadena de prototipos" o "prototype chain."
+
+// Aquí hay un ejemplo sencillo para ilustrar cómo funcionan los prototipos en JavaScript:
+
+// Definimos un constructor de objetos
+function Persona(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+}
+
+// Agregamos un método al prototipo del constructor Persona
+Persona.prototype.saludar = function() {
+    console.log("Hola, soy " + this.nombre);
+}
+
+// Creamos una instancia de Persona
+const persona = new Persona("Juan", 30);
+
+// El objeto 'persona' hereda el método 'saludar' del prototipo
+persona.saludar(); // Imprime "Hola, soy Juan"
+
+// En este ejemplo, Persona.prototype es el prototipo de las instancias creadas con el constructor Persona. Cualquier instancia de Persona que crees tendrá acceso al método saludar a través de la cadena de prototipos.
+
+// La ventaja de los prototipos en JavaScript es que permiten la reutilización de código y la implementación de herencia sin la necesidad de clases formales, como se encuentra en otros lenguajes de programación orientada a objetos. En lugar de utilizar clases, JavaScript utiliza funciones constructoras y prototipos para lograr la herencia.
+
+// Es importante tener en cuenta que a partir de ECMAScript 6 (ES6), JavaScript introdujo las clases, que son una forma más declarativa y familiar de trabajar con la herencia. Sin embargo, en su núcleo, las clases de ES6 siguen utilizando prototipos por debajo.
+
+
+
 
 // Cuando se crea un objeto literal, se puede ver en consola sus atributos y uno de ellos es  __proto__: encontraremos los metodos que podremos aplicar en el objeto. (Pasa lo mismo cuando se crean los arrays, tienen su propio __proto__:)
 
