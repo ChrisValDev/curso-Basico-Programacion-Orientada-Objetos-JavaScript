@@ -2,7 +2,43 @@
 
 // Paradigmas (estructurado, orientado a objetos y funcional) dependiendo el caso de aplicacion uno es mejor que otro o incluso al mismo tiempo.
 
-// Objetos: Los objetos literales no son iguales a los objetos de la POO (prototipo(instancia - objeto). Los objetos literales los creamos manualmente uno por uno.
+// Objetos: 
+
+// En JavaScript, los objetos son una parte fundamental del lenguaje y se utilizan para representar y organizar datos de diversas formas. Un objeto es una estructura de datos que agrupa propiedades y métodos relacionados. Estas propiedades pueden ser valores (números, cadenas, booleanos, etc.) o incluso otras funciones, y los métodos son funciones que están asociadas al objeto.
+
+// Los objetos en JavaScript se definen utilizando la notación literal de llaves ({}) o mediante la creación de una instancia de una clase o constructor (antes de la llegada de las clases de ES6). Aquí tienes ejemplos de ambas formas:
+
+// Notación literal de llaves:
+
+const persona = {
+    nombre: "Juan",
+    edad: 30,
+    decirHola: function() {
+        console.log("Hola, soy " + this.nombre);
+    }
+};
+
+console.log(persona.nombre); // Accediendo a una propiedad
+persona.decirHola(); // Llamando a un método
+
+// Creación de objetos utilizando un constructor:
+
+function Persona(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.decirHola = function() {
+        console.log("Hola, soy " + this.nombre);
+    };
+}
+
+const persona = new Persona("Juan", 30);
+console.log(persona.nombre);
+persona.decirHola();
+
+// Los objetos en JavaScript son muy versátiles y se utilizan para modelar datos y comportamientos en una amplia variedad de aplicaciones, desde manipulación del DOM en páginas web hasta la representación de datos en aplicaciones más complejas. Los objetos también pueden anidarse, lo que significa que puedes tener objetos dentro de objetos para crear estructuras de datos más complejas y jerárquicas.
+
+// Además, JavaScript es un lenguaje de programación orientado a objetos, por lo que los objetos desempeñan un papel central en la programación JavaScript, y casi todo en JavaScript es un objeto o se puede considerar como un objeto.
+
 
 // Prototipos (moldes): Sirven para crear varios objetos con propiedades y metodos iguales sin necesidad de crearlos manualmente uno por uno.
 
