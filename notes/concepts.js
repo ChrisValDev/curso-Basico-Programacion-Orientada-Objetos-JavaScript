@@ -96,10 +96,100 @@ persona.saludar(); // Imprime "Hola, soy Juan"
 
 // 4 pilares de la POO
 
-// 1. Abstraccion: La abstracción en JavaScript, al igual que en otros lenguajes de programación, se refiere a la capacidad de ocultar los detalles internos de un objeto o una función y exponer solo los aspectos relevantes y necesarios para interactuar con ese objeto o función. Esto ayuda a simplificar la complejidad y a mejorar la claridad del código. Ayuda tambien a reutilizar el codigo.
+// Los cuatro pilares de la Programación Orientada a Objetos (POO) son:
 
-// 2. Encapsulamiento: El encapsulamiento en JavaScript se refiere a la práctica de ocultar detalles internos y la implementación de un objeto o una función, y solo exponer una interfaz pública que permita interactuar con dicho objeto o función. Esto se logra utilizando propiedades y métodos para controlar el acceso a los datos y las funcionalidades internas del objeto. El encapsulamiento es uno de los cuatro conceptos fundamentales de la programación orientada a objetos, junto con la abstracción, la herencia y el polimorfismo.
+// Encapsulación: La encapsulación se refiere a la capacidad de ocultar los detalles de implementación de un objeto y exponer solo una interfaz pública. En JavaScript, la encapsulación se logra mediante la creación de atributos y métodos privados y públicos en un objeto. Aquí tienes un ejemplo:
 
-// 3. Herencia: La herencia en JavaScript se refiere a la capacidad de un objeto (llamado "objeto hijo" o "subclase") de heredar propiedades y métodos de otro objeto (llamado "objeto padre" o "superclase"). La herencia es un concepto fundamental en la programación orientada a objetos (POO) y es utilizado para crear relaciones jerárquicas entre objetos, lo que permite la reutilización de código y la organización de la lógica de programación de una manera más estructurada.
+class Coche {
+    constructor(marca, modelo) {
+        this.marca = marca; // Atributo público
+        this.modelo = modelo; // Atributo público
+        let velocidad = 0; // Atributo privado
 
-// 4. Polimorfismo: El polimorfismo en JavaScript, al igual que en otros lenguajes de programación orientada a objetos, se refiere a la capacidad de objetos de diferentes clases (o tipos) para responder a un mismo método o función de manera diferente. En otras palabras, el polimorfismo permite que objetos de distintas clases que heredan de una misma superclase (o interfaz) puedan implementar métodos con el mismo nombre pero comportamientos específicos para cada clase.
+        this.acelerar = function() { // Método público
+            velocidad += 10;
+        };
+
+        this.getVelocidad = function() { // Método público
+            return velocidad;
+        };
+    }
+}
+
+const miCoche = new Coche("Toyota", "Camry");
+miCoche.acelerar();
+console.log(miCoche.getVelocidad()); // Solo se accede a la velocidad a través del método
+
+// Abstracción: La abstracción implica simplificar objetos complejos dividiéndolos en partes más pequeñas y manejables. En JavaScript, puedes crear clases y objetos que representen conceptos abstractos. Por ejemplo:
+
+class Forma {
+    constructor(tipo) {
+        this.tipo = tipo;
+    }
+
+    describir() {
+        console.log(`Esta forma es de tipo ${this.tipo}`);
+    }
+}
+
+const cuadrado = new Forma("cuadrado");
+cuadrado.describir(); // Imprime "Esta forma es de tipo cuadrado"
+
+// Herencia: La herencia permite que un objeto herede propiedades y métodos de otro objeto. En JavaScript, esto se logra utilizando la palabra clave extends. Por ejemplo:
+
+class Animal {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+
+    hablar() {
+        console.log(`${this.nombre} emite un sonido.`);
+    }
+}
+
+class Perro extends Animal {
+    hablar() {
+        console.log(`${this.nombre} ladra.`);
+    }
+}
+
+const miPerro = new Perro("Fido");
+miPerro.hablar(); // Imprime "Fido ladra."
+
+// Polimorfismo: El polimorfismo permite que diferentes objetos respondan de manera diferente a la misma función o método. En JavaScript, esto se logra mediante la capacidad de un objeto de sobrescribir un método heredado de su clase base. Por ejemplo:
+
+class Figura {
+    area() {
+        return 0;
+    }
+}
+
+class Cuadrado extends Figura {
+    constructor(lado) {
+        super();
+        this.lado = lado;
+    }
+
+    area() {
+        return this.lado * this.lado;
+    }
+}
+
+class Circulo extends Figura {
+    constructor(radio) {
+        super();
+        this.radio = radio;
+    }
+
+    area() {
+        return Math.PI * this.radio * this.radio;
+    }
+}
+
+const cuadrado = new Cuadrado(4);
+const circulo = new Circulo(3);
+
+console.log(cuadrado.area()); // Imprime el área del cuadrado
+console.log(circulo.area()); // Imprime el área del círculo
+
+// Estos son los cuatro pilares de la POO en JavaScript, y cada uno de ellos se utiliza para modelar objetos y sus relaciones en programas orientados a objetos.
