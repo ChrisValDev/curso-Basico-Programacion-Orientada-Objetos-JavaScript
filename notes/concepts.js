@@ -71,12 +71,28 @@ persona.saludar(); // Imprime "Hola, soy Juan"
 
 // Es importante tener en cuenta que a partir de ECMAScript 6 (ES6), JavaScript introdujo las clases, que son una forma más declarativa y familiar de trabajar con la herencia. Sin embargo, en su núcleo, las clases de ES6 siguen utilizando prototipos por debajo.
 
+// Clases:
 
+// Las clases en JavaScript son una característica introducida en ECMAScript 6 (también conocido como ES6) que proporciona una forma más declarativa y estructurada de definir objetos y aplicar la herencia en JavaScript. A pesar de que las clases se introdujeron para hacer que la programación orientada a objetos sea más accesible y familiar para los programadores que están acostumbrados a lenguajes de programación con clases tradicionales, como Java o C++, en su núcleo, las clases de ES6 siguen utilizando el sistema de prototipos subyacente de JavaScript.
 
+// Aquí tienes un ejemplo de cómo se define una clase en JavaScript:
 
-// Cuando se crea un objeto literal, se puede ver en consola sus atributos y uno de ellos es  __proto__: encontraremos los metodos que podremos aplicar en el objeto. (Pasa lo mismo cuando se crean los arrays, tienen su propio __proto__:)
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
 
-// Clases: Es la manera de crear prototipos con una sintaxis especial, existe el metodo --constructor-- el cual define los parametros, la ventaja es que al crear la instancia del objeto, permite ingresar los argumentos que solo contenga el objeto y no es obligatorio ingresar todos los parametros ni tampoco el orden en el cual estan.
+    saludar() {
+        console.log("Hola, soy " + this.nombre);
+    }
+}
+
+const persona = new Persona("Juan", 30);
+persona.saludar(); // Imprime "Hola, soy Juan"
+
+// En este ejemplo, class Persona define una clase llamada "Persona" con un constructor y un método "saludar". El constructor se ejecuta cuando se crea una instancia de la clase y se utiliza para inicializar propiedades. Los métodos se definen dentro de la clase y se pueden llamar en las instancias de la clase.
+
 
 // 4 pilares de la POO
 
